@@ -2,9 +2,37 @@
 
 {% block content %}
 
-<h2>{{ title }}.</h2>
-<h3>{{ message }}</h3>
 
-<p>Use this area to provide additional information.</p>
+    <br/>
+    <br/>
+    {% csrf_token %}
+    <form method="post" class="form-horizontal">
+        {% for item in quest.Quest %}
+            <td>
+                <hr/>
+                <h1> {{ item.quest }} </h1>
+                {% for lot in QuestAns.QuestAns %}
+                    {% if lot.quest_num == item.id %}
+                        <h3>{{ lot.answer_num }}) {{ lot.answer }}</h3>
+
+                    {% endif %}
+                {% endfor %}
+
+
+                <div class="form-group">
+
+                    <label for="answer">Ответ: </label>
+                    {% csrf_token %}
+                    {{ form.answer_num }}
+
+                </div>
+                {% if form.errors %}
+                    <p class="validation-summary-errors">Please check your answers.</p>
+                {% endif %}
+                <br/>
+            </td>
+        {% endfor %}
+        <button type="submit">submit</button>
+    </form>
 
 {% endblock %}
