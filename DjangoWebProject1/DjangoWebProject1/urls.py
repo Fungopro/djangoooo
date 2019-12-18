@@ -21,14 +21,11 @@ admin.autodiscover()
 urlpatterns = [
     # Examples:
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'^addNews/', app.views.addnews, name='newnews'),
     url(r'^redactor/', include('redactor.urls')),
-    url(r'^news/all/$', app.views.about, name='about'),
-    url(r'^news/get/(?P<news_id>\d+)$', app.views.news, name='news'),
+    url(r'^quests/$', app.views.about, name='about'),
+    url(r'^SelectAnswer/$', app.views.answer, name='answer'),
     url(r'^admin/', admin.site.urls),
-    url(r'^signup/', app.views.signup, name='signup'),
     url(r'^$', app.views.home, name='home'),
-    url(r'^contact$', app.views.contact, name='contact'),
     url(r'^login/$',
         django.contrib.auth.views.login,
         {

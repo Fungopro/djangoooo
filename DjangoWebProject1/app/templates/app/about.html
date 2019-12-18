@@ -6,7 +6,7 @@
     <br/>
     <br/>
     {% csrf_token %}
-    <form method="post" class="form-horizontal">
+    <form action="/SelectAnswer/" method="post" class="form-horizontal">
         {% for item in quest.Quest %}
             <td>
                 <hr/>
@@ -14,17 +14,14 @@
                 {% for lot in QuestAns.QuestAns %}
                     {% if lot.quest_num == item.id %}
                         <h3>{{ lot.answer_num }}) {{ lot.answer }}</h3>
-
                     {% endif %}
                 {% endfor %}
 
 
                 <div class="form-group">
-
                     <label for="answer">Ответ: </label>
                     {% csrf_token %}
-                    {{ form.answer_num }}
-
+                    <input id="ans_{{ item.id }}" type="text" name="ans_{{ item.id }}" value="{{ current_name }}">
                 </div>
                 {% if form.errors %}
                     <p class="validation-summary-errors">Please check your answers.</p>
