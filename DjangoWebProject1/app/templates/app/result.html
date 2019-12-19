@@ -1,0 +1,23 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+
+    <br/>
+    <br/>
+    {% csrf_token %}
+
+    {% for item in quest.Quest %}
+        <td>
+            <hr/>
+            <h1> {{ item.quest }} </h1>
+            {% for lot in answer %}
+                {% if lot.quest_num == item.id %}
+                    <h3>{{ lot.user }} , {{ lot.group }}: {{ lot.answer_num }}</h3>
+                {% endif %}
+            {% endfor %}
+            <br/>
+        </td>
+    {% endfor %}
+
+{% endblock %}

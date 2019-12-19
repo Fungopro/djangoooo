@@ -70,5 +70,8 @@ class Answer(models.Model):
     class Meta:
         db_table = 'answer'
 
+    user = models.CharField(max_length=150, verbose_name=u'Title')
+    group = models.CharField(max_length=150, verbose_name=u'Title')
     answer_num = models.IntegerField()
     quest_num = models.IntegerField()
+    time = models.DateTimeField()

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} TrueNews</title>
+    <title>{{ title }} Анкетирование 3000</title>
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
@@ -19,14 +19,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">TrueNews</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'about' %}">News</a></li>
+                    <li><a href="{% url 'about' %}">Анкета</a></li>
+                    <li><a href="{% url 'home' %}">Результаты</a></li>
                 </ul>
-                {% include 'app/loginpartial.html' %}
             </div>
         </div>
     </div>
